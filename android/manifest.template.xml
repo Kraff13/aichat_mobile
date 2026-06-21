@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [MOBILE] Шаблон AndroidManifest для проекта AI Chat.
+
+  В современном Flet (0.25.x) рекомендуемый способ задать разрешения — секция
+  [tool.flet.android.permission] в pyproject.toml (она уже заполнена).
+  Этот файл-шаблон приведён согласно заданию урока и показывает, какие именно
+  разрешения требуются приложению. Используйте его как референс.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.aichat">
+
+    <!-- Доступ к интернету: запросы к OpenRouter API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Мониторинг состояния сети -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Экспорт истории чата в файл (на Android 10+ предпочтительно scoped storage) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <application
+        android:label="AIChat"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
+        <!-- Основная активность генерируется шаблоном Flet/Flutter -->
+    </application>
+</manifest>

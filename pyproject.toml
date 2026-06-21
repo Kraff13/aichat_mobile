@@ -1,0 +1,36 @@
+# Конфигурация сборки Flet (flet build apk / ipa).
+# Документация: https://flet.dev/docs/publish
+
+[project]
+name = "aichat"
+version = "1.0.0"
+description = "AI Chat — кроссплатформенный клиент OpenRouter (десктоп + Android/iOS)"
+readme = "README_MOBILE.md"
+requires-python = ">=3.9"
+dependencies = [
+    "flet==0.25.2",
+    "python-dotenv>=1.0.0",
+    "requests>=2.28.0",
+]
+
+[tool.flet]
+# Идентификация приложения. package-name = org + product => com.example.aichat
+org = "com.example"
+product = "AIChat"
+company = "NeuroFill"
+copyright = "Copyright (C) 2024 NeuroFill"
+
+[tool.flet.app]
+# Исходный код приложения лежит в каталоге src/, точка входа — модуль main.
+path = "src"
+module = "main"
+
+# [MOBILE] Разрешения Android. flet build впишет их в сгенерированный AndroidManifest.xml.
+[tool.flet.android.permission]
+"android.permission.INTERNET" = true                 # доступ к OpenRouter API
+"android.permission.ACCESS_NETWORK_STATE" = true     # мониторинг состояния сети
+"android.permission.WRITE_EXTERNAL_STORAGE" = true   # экспорт истории чата
+
+# [MOBILE] Разрешения iOS (ключи Info.plist).
+[tool.flet.ios.info]
+NSAppTransportSecurity = { NSAllowsArbitraryLoads = true }

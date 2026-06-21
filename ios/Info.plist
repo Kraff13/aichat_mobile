@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  [MOBILE] Шаблон Info.plist для сборки под iOS.
+  В современном Flet ключи Info.plist можно задать в pyproject.toml
+  ([tool.flet.ios.info]). Этот файл показывает требуемые ключи согласно заданию.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Разрешить сетевые запросы к OpenRouter API -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <!-- Описание использования сети -->
+    <key>NSNetworkUsageDescription</key>
+    <string>Приложению нужен доступ к интернету для общения с AI-моделями через OpenRouter.</string>
+    <!-- Доступ к папке документов для экспорта истории -->
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>Приложению нужен доступ к документам для сохранения истории чата.</string>
+</dict>
+</plist>
